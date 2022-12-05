@@ -20,6 +20,7 @@ namespace Hangman
             int playerLives = initialPlayerLives;
             char enteredLetter;
             bool playerWon = false;
+            Console.WriteLine($"Lives left: {playerLives}");
 
             while (true)
             {
@@ -32,10 +33,6 @@ namespace Hangman
                         break;
                     }
                 }
-                enteredLetter = Program.EnterLetter();
-                Console.Clear();
-                playerWon = Program.ProccessWord(playWord, enteredLetter, ref guessedCorrectLetters, ref playerLives);
-                Console.WriteLine();
                 if (playerLives < 1)
                 {
                     Console.WriteLine("You LOST!");
@@ -44,6 +41,10 @@ namespace Hangman
                         break;
                     }
                 }
+                enteredLetter = Program.EnterLetter();
+                Console.Clear();
+                playerWon = Program.ProccessWord(playWord, enteredLetter, ref guessedCorrectLetters, ref playerLives);
+                Console.WriteLine();
             }
         }
 
@@ -142,12 +143,12 @@ namespace Hangman
                     break;
                 case 3:
                     Console.WriteLine(@"
-                            +---+
-                            O     |
-                           /|     |
-                                  |
-                                 ===
-                        ");
+                        +---+
+                        O     |
+                       /|     |
+                              |
+                             ===
+                    ");
                     break;
                 case 2:
                     Console.WriteLine(@"
