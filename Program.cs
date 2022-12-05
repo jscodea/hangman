@@ -10,9 +10,7 @@ namespace Hangman
             Random random = new Random();
 
             //IMPORT ALLOWED WORDS
-            //Console.WriteLine("Hello, World!");
-            //string[] lines = File.ReadAllLines("words.txt");
-            string[] words = { "test", "best" };
+            string[] words = File.ReadAllLines("words.txt");
 
             //Choosing play word randomly
             string playWord = words[random.Next(words.Length)];
