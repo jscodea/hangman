@@ -107,15 +107,23 @@ namespace Hangman
             )
         {
             Console.WriteLine("Play again? y/n");
-            if (Char.ToLower(Console.ReadKey().KeyChar) == 'y')
+            char enteredLetter = Char.ToLower(Console.ReadKey().KeyChar);
+            while (true)
             {
-                Console.Clear();
-                playerLives = initialPlayerLives;
-                guessedLetters = new List<char>();
-                playWord = words[random.Next(words.Length)];
-                return true;
+                if (enteredLetter == 'y')
+                {
+                    Console.Clear();
+                    playerLives = initialPlayerLives;
+                    guessedLetters = new List<char>();
+                    playWord = words[random.Next(words.Length)];
+                    return true;
+                }
+                if (enteredLetter == 'n')
+                {
+                    return false;
+                }
+                enteredLetter = Char.ToLower(Console.ReadKey().KeyChar);
             }
-            return false;
         }
 
         static void DrawHangman(int livesLeft)
